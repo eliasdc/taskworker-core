@@ -3,4 +3,4 @@
 CODEBASE=/usr/share/java/taskworker-core.jar
 CONFIG=/etc/taskworker/config.properties
 
-java -Ddreamaas.properties=$CONFIG -jar $CODEBASE
+java -Dtaskworker.properties=$CONFIG -jar $CODEBASE

@@ -105,8 +105,8 @@ def new_job(options):
     with open(options.data, "r") as fd:
         data = fd.read()
     
-    params = urllib.urlencode({'start_after': options.start_after.strftime("%s"), 
-                               'finish_before': options.finish_before.strftime("%s"), 
+    params = urllib.urlencode({'start_after': options.start_after.strftime("%S"), 
+                               'finish_before': options.finish_before.strftime("%S"), 
                                'arg0': data})
     
     call(options, "POST", "/newjob/" + options.workflow, {
