@@ -30,6 +30,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import static drm.taskworker.config.Config.cfg;
 
 /**
  * The configuration of a worker.
@@ -54,7 +55,7 @@ public class WorkerConfig {
 	private URLClassLoader getLoader() {
 		if (urlLoader == null) {
 			try {
-				File jarFile = new File(this.code);
+				File jarFile = new File(cfg().getProperty("taskworker.workers.folder", "target/") + this.code);
 				
 				if (!jarFile.isFile()) {
 					logger.log(Level.SEVERE, "Unable to locate jar " + jarFile);
